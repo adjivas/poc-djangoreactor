@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+psycopg2-binary = "*"
+sentry_sdk = "*"
+djangoreactor = {git = "https://github.com/edelvalle/reactor.git", ref = "027197d1aeb9863f326e4514e1c5722e512d6a23", editable = true}
+
+[dev-packages]
+pytest = "*"
+pytest-mock = "*"
+pytest-django = "*"
+coverage = "*"
+ipython = "*"
+flake8 = "*"
+isort = "*"
+black = "==22.6.0"
+
+[requires]
+python_version = "3.10"

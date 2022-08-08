@@ -1,0 +1,23 @@
+image: "python:3.10"
+
+stages:
+  - test
+
+.test-common: &test-common
+  stage: test
+  before_script:
+    - pip install --upgrade pipenv
+    - pipenv install --dev
+
+lint:
+  <<: *test-common
+  script:
+    - pipenv run flake8
+    - pipenv run isort --check .
+    - pipenv run black --check .
+
+test:
+  <<: *test-common
+  script:
+    - SECRET_KEY=gitlab-ci pipenv run coverage run manage.py test
+    - pipenv run coverage report --fail-under=80 --show-missing
