@@ -35,6 +35,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'reactor',
+    'channels',
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -70,6 +72,9 @@ TEMPLATES = [
         },
     },
 ]
+
+
+ASGI_APPLICATION = 'config.asgi.application'
 
 WSGI_APPLICATION = "config.wsgi.application"
 
