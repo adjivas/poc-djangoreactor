@@ -1,5 +1,5 @@
 language: python
-python: "3.10"
+python: "3.10-dev"
 # command to install dependencies
 install:
   - apt-get install -y git npm nodejs
