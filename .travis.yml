@@ -1,0 +1,13 @@
+language: python
+python: "3.10"
+# command to install dependencies
+install:
+  - apt-get install -y git npm nodejs
+  - pip install --upgrade pip pipenv
+  - pipenv install --dev --deploy --system
+  - python manage.py migrate
+  - cd ./src/djangoreactor
+  - node esbuild.conf.js
+# command to run tests
+script:
+  - pytest
