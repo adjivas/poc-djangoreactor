@@ -1,6 +1,12 @@
-FROM python:3.10
+FROM python:3.10-slim AS builder
 
 WORKDIR /app
+
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends build-essential
+RUN apt-get install -y git
+RUN apt-get install -y npm nodejs
+
 COPY Pipfile Pipfile.lock ./
 
 RUN pip install --upgrade pip pipenv \
