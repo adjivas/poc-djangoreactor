@@ -2,7 +2,7 @@ language: python
 python: "3.10-dev"
 # command to install dependencies
 install:
-  - apt-get install -y git npm nodejs
+  - sudo apt-get install -y git npm nodejs
   - pip install --upgrade pip pipenv
   - pipenv install --dev --deploy --system
   - python manage.py migrate
