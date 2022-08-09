@@ -1,8 +1,21 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from reactor.component import Component
 
-# Fixe?
-from navi2.live import TestComponent
 
-class ReactorView(TemplateView):
-    template_name = "reactor.html"
+class XCounter(Component):
+    _template_name = 'x-counter.html'
+
+    amount: int = 0
+
+    def recv_inc(self):
+        self.amount += 1
+
+    def recv_dec(self):
+        self.amount -= 1
+
+    def recv_set_to(self, amount: int):
+        self.amount = amount
+
+
+def counter(request):
+    return render(request, 'counter.html', context={"title": "index"})

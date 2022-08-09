@@ -1,0 +1,12 @@
+{% load reactor %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Counter</title>
+    {% reactor_header %}
+  </head>
+  <body>
+    <!-- or passing an initial state -->
+    {% component 'XCounter' amount=100 %}
+  </body>
+</html>

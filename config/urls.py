@@ -14,9 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import include, path
-from navi2.views import ReactorView
 
 urlpatterns = [
-        path("", ReactorView.as_view(), name="home"),
-        path("", include("navi2.urls"))
+    path("", include("navi2.urls"))
 ]
